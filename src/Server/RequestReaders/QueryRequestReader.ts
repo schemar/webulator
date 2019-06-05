@@ -1,6 +1,7 @@
 import Decoder from './Decoder';
 import RequestReader from '../RequestReader';
-import { ServerError, StatusCode } from '../ServerError';
+import ServerError from '../ServerError';
+import StatusCode from '../StatusCode';
 
 /**
  * A request handler that gets the request payload from a query parameter called "query".

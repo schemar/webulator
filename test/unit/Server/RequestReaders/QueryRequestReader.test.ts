@@ -4,7 +4,7 @@ import * as sinon from 'sinon';
 
 import Decoder from '../../../../src/Server/RequestReaders/Decoders/Base64Decoder';
 import QueryRequestReader from '../../../../src/Server/RequestReaders/QueryRequestReader';
-import { ServerError } from '../../../../src/Server/ServerError';
+import ServerError from '../../../../src/Server/ServerError';
 
 describe('QueryRequestReader', (): void => {
     it('reads a string from a query "query"', (): void => {

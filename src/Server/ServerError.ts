@@ -1,10 +1,7 @@
-/** Possible HTTP status codes of this application. */
-export enum StatusCode {
-    BadRequest = 400,
-}
+import StatusCode from './StatusCode';
 
 /** A ServerError is an error that can occur during request handling. */
-export class ServerError extends Error {
+export default class ServerError extends Error {
     /** The HTTP status code of this error. */
     public readonly code: StatusCode;
 

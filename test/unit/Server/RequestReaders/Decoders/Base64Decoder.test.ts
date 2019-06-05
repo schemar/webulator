@@ -2,7 +2,7 @@ import 'mocha';
 import { expect } from 'chai';
 import Base64Decoder from '../../../../../src/Server/RequestReaders/Decoders/Base64Decoder';
 
-describe('QueryRequestReader', (): void => {
+describe('Base64Decoder', (): void => {
     it('decodes base64 encoded strings', (): void => {
         const testStrings: string[] = [
             'one',
