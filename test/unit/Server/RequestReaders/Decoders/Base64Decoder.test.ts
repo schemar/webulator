@@ -4,7 +4,7 @@ import Base64Decoder from '../../../../../src/Server/RequestReaders/Decoders/Bas
 
 describe('Base64Decoder', (): void => {
     it('decodes base64 encoded strings', (): void => {
-        const testStrings: string[] = [
+        const testInputs: string[] = [
             'one',
             'two',
             'foo',
@@ -18,11 +18,11 @@ describe('Base64Decoder', (): void => {
 
         const decoder: Base64Decoder = new Base64Decoder();
 
-        testStrings.forEach((testString: string): void => {
-            const encoded = Buffer.from(testString).toString('base64');
+        testInputs.forEach((testInput: string): void => {
+            const encoded = Buffer.from(testInput).toString('base64');
             const decoded = decoder.decode(encoded);
 
-            expect(decoded).to.equal(testString);
+            expect(decoded).to.equal(testInput);
         });
     });
 });

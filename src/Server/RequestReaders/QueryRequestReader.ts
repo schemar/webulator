@@ -26,9 +26,11 @@ export default class QueryRequestReader implements RequestReader {
      * @param request The incoming request. Must have a `query` property. For example an express
      *     request.
      *
-     *@returns The decoded payload.
+     * @returns The decoded payload.
+     *
+     * @throws A ServerError if it cannot read the `query` query key from the given request.
      */
-    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public read(request: { query: any }): string {
         if (typeof request.query.query !== 'string') {
             throw new ServerError(StatusCode.BadRequest, 'Missing a query parameter "query".');

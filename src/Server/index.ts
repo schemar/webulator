@@ -1,5 +1,6 @@
-import * as http from 'http';
 import * as express from 'express';
+import * as http from 'http';
+import * as winston from 'winston';
 
 import logger from '../Logger';
 import Calculator from './Calculator';
@@ -56,7 +57,7 @@ export default class Server {
 
         return server.listen(
             this.port,
-            () => logger.info(`server listening on port ${this.port}`),
+            (): winston.Logger => logger.info(`server listening on port ${this.port}`),
         );
     }
 

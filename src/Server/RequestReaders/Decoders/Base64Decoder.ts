@@ -11,6 +11,7 @@ export default class Base64Decoder implements Decoder {
      *
      * @returns A utf8 encoded string that represents the input base64 decoded.
      */
+    // eslint-disable-next-line class-methods-use-this
     public decode(input: string): string {
         const buffer = Buffer.from(input, 'base64');
 

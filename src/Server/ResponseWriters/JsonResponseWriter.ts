@@ -10,12 +10,13 @@ export default class JsonResponseWriter implements ResponseWriter {
      * @param payload The response payload, will be JSON encoded in the response body.
      * @param response The response object to write to.
      */
+    // eslint-disable-next-line class-methods-use-this
     public write(
         code: StatusCode,
         payload: object,
         response: {
             statusCode: number;
-            end: (chunk: any) => void;
+            end: (chunk: any) => void; // eslint-disable-line @typescript-eslint/no-explicit-any
         },
     ): void {
         response.statusCode = code;

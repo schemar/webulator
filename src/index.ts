@@ -8,7 +8,7 @@ import Calculator from './Server/Calculator';
 import Decoder from './Server/RequestReaders/Decoder';
 import JsonResponseWriter from './Server/ResponseWriters/JsonResponseWriter';
 import QueryRequestReader from './Server/RequestReaders/QueryRequestReader';
-import RecursiveIntegerCalculator from './Server/Calculators/RecursiveIntegerCalculator';
+import RecursiveFloatCalculator from './Server/Calculators/RecursiveFloatCalculator';
 import RequestReader from './Server/RequestReader';
 import ResponseWriter from './Server/ResponseWriter';
 import Server from './Server';
@@ -27,7 +27,7 @@ if (!commander.port) {
 const decoder: Decoder = new Base64Decoder();
 const requestReader: RequestReader = new QueryRequestReader(decoder);
 const responseWriter: ResponseWriter = new JsonResponseWriter();
-const calculator: Calculator = new RecursiveIntegerCalculator();
+const calculator: Calculator = new RecursiveFloatCalculator();
 
 const server: Server = new Server(commander.port, requestReader, responseWriter, calculator);
 server.run();
