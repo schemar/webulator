@@ -17,9 +17,11 @@ export default class JsonResponseWriter implements ResponseWriter {
         response: {
             statusCode: number;
             end: (chunk: any) => void; // eslint-disable-line @typescript-eslint/no-explicit-any
+            setHeader: (key: string, value: string) => void;
         },
     ): void {
         response.statusCode = code;
+        response.setHeader('content-type', 'application/json');
         return response.end(JSON.stringify(payload));
     }
 }

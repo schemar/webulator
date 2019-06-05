@@ -12,9 +12,11 @@ describe('JsonResponseWriter', (): void => {
             bar: 3,
         };
         const end = sinon.fake();
+        const setHeader = sinon.fake();
         const response = {
             statusCode: 0,
             end,
+            setHeader,
         };
 
         const writer = new JsonResponseWriter();
@@ -32,9 +34,11 @@ describe('JsonResponseWriter', (): void => {
         const testStatusCode = 200;
         const testPayload = {};
         const end = sinon.fake();
+        const setHeader = sinon.fake();
         const response = {
             statusCode: 0,
             end,
+            setHeader,
         };
 
         const writer = new JsonResponseWriter();
@@ -45,5 +49,27 @@ describe('JsonResponseWriter', (): void => {
         );
 
         expect(response.statusCode).to.equal(200);
+    });
+
+    it('returns the correct content type', (): void => {
+        const testStatusCode = 200;
+        const testPayload = {};
+        const end = sinon.fake();
+        const setHeader = sinon.fake();
+        const response = {
+            statusCode: 0,
+            end,
+            setHeader,
+        };
+
+        const writer = new JsonResponseWriter();
+        writer.write(
+            testStatusCode,
+            testPayload,
+            response,
+        );
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(response.setHeader.calledOnceWith('content-type', 'application/json')).to.be.true;
     });
 });
